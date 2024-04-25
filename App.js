@@ -2,29 +2,17 @@ import logo from "./logo.svg";
 import axios from "axios";
 
 import "./App.css";
-//postgresql://autolensDB_owner:e4Fv0YIATVWb@ep-dry-wave-a5d77r71.us-east-2.aws.neon.tech/autolensDB
-// const getStudentID = () => {
-//   fetch(
-//     "postgresql://autolensDB_owner:e4Fv0YIATVWb@ep-dry-wave-a5d77r71.us-east-2.aws.neon.tech/autolensDB/host:3000/member/T2/canva/T2"
-//   )
-//     .then((response) => {
-//       if (!response.ok) {
-//         throw new Error("Network response was not ok");
-//       }
-//       return response.json();
-//     })
-//     .then((data) => {
-//       console.log(data);
-//     })
-//     .catch((error) => {
-//       console.error("There was a problem with the fetch operation:", error);
-//     });
-// };
 
+// Función para obtener los IDs de los estudiantes
 const getStudentID = () => {
-  axios.get("http://localhost:3000/member/T2/canva/T2").then((data) => {
-    console.log(data);
-  });
+  axios
+    .get("http://localhost:3000/member/T2/canva/T2")
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((error) => {
+      console.error("Hubo un problema con la solicitud:", error);
+    });
 };
 
 function App() {
